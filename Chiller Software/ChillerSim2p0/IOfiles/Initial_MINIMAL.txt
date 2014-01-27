@@ -1,0 +1,5 @@
+18.0	21.0	75.0
+0.0
+
+Evap water outlet temp (C), Cond water outlet temp (C), Refrigerant charge (kg)
+Mass of non-condensables (nitrogen) in the system in kg.

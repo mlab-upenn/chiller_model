@@ -1,0 +1,11 @@
+542.0	237.45
+542.0	411.514
+0.0
+
+****************************************************************
+*************THIS IS WITH 80% UNDERCHARGE, I.E. 60KG************
+****************************************************************
+
+Evaporator pressure (kPa), Enthalpy in evaporator (kJ/kg)
+Condenser pressure (kPa), Enthalpy in condenser (kJ/kg)
+Mass of non-condensables (nitrogen) in the system in kg

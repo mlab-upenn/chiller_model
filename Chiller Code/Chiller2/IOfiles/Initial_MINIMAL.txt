@@ -1,0 +1,5 @@
+18.0	21.0	124.0
+0.0
+
+Evaporator water outlet temperature (C), Condenser water outlet temperature (C), Total refrigerant quantity (kg)
+Mass of non-condensables (nitrogen) in the system in kg.

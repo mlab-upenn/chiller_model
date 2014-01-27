@@ -1,0 +1,6 @@
+2	15	164
+0.01554	0.01905	2.4384	0.385	8933	0.0	0.3776
+
+Line 1:	Heat exchanger type (1=evaporator, 2=condenser)		Number of nodes	Number of tubes
+Line 2:	Tube inside diameter (m), Tube outside diameter (m), Tube length (m), Tube material Cp (kJ/kg-K), Tube material density (kg/m^3), fouling factor, Shell inside diameter (m)
+	

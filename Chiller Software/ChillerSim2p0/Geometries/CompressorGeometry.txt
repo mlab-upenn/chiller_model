@@ -1,0 +1,9 @@
+0.75	1.06	0.01	150	45	30	600	10	15
+1.4354	0.0054572	-0.0030135	-0.017697	0.000005653
+-0.26524	7.1149	-23.415	0.04173	-0.00089576
+7.2058	0.8	0.003
+
+Line 1:	etam, mod limit (C), deadband (C), full open t(s), full close t(s), start lim (%), ramp up t(s), maxstep, waittime
+Line 2:	Coefficients of maximum capacity map in the order a0...a5, for Pe, Pc in Kpa and T1 in C.
+Line 3:	Coefficients of polytropic efficiency map, with Vdot in m^3/s and W_p in kJ/kg
+Line 4:	Coefficients of %RLA map with Pmotor in kW

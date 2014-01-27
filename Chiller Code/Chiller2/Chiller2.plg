@@ -1,0 +1,57 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Chiller2 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\SATYAM~1\LOCALS~1\Temp\RSPDA4.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/Chiller2.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"C:\Work\PhDProject\C++Projects\Finite Volume\Chiller2\Chiller2.cpp"
+"C:\Work\PhDProject\C++Projects\Finite Volume\Chiller2\Properties.cpp"
+"C:\Work\PhDProject\C++Projects\Finite Volume\Chiller2\Components.cpp"
+"C:\Work\PhDProject\C++Projects\Finite Volume\Chiller2\Errorlog.cpp"
+"C:\Work\PhDProject\C++Projects\Finite Volume\Chiller2\Matrix.cpp"
+"C:\Work\PhDProject\C++Projects\Finite Volume\Chiller2\NumRecipes.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SATYAM~1\LOCALS~1\Temp\RSPDA4.tmp" 
+Creating temporary file "C:\DOCUME~1\SATYAM~1\LOCALS~1\Temp\RSPDA5.tmp" with contents
+[
+/nologo /MLd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_CONSOLE" /D "_MBCS" /Fp"Debug/Chiller2.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ  /c 
+"C:\Work\PhDProject\C++Projects\Finite Volume\Chiller2\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\SATYAM~1\LOCALS~1\Temp\RSPDA5.tmp" 
+Creating temporary file "C:\DOCUME~1\SATYAM~1\LOCALS~1\Temp\RSPDA6.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib  kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:console /incremental:yes /pdb:"Debug/Chiller2.pdb" /debug /machine:I386 /out:"Debug/Chiller2.exe" /pdbtype:sept 
+".\Debug\StdAfx.obj"
+".\Debug\Chiller2.obj"
+".\Debug\Properties.obj"
+".\Debug\Components.obj"
+".\Debug\Errorlog.obj"
+".\Debug\Matrix.obj"
+".\Debug\NumRecipes.obj"
+]
+Creating command line "link.exe @C:\DOCUME~1\SATYAM~1\LOCALS~1\Temp\RSPDA6.tmp"
+<h3>Output Window</h3>
+Compiling...
+StdAfx.cpp
+Compiling...
+Chiller2.cpp
+Properties.cpp
+Components.cpp
+Errorlog.cpp
+Matrix.cpp
+NumRecipes.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Chiller2.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

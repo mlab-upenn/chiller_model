@@ -1,0 +1,7 @@
+542.0	233.967
+542.0	411.5
+0.0
+
+Evaporator pressure (kPa), Enthalpy in evaporator (kJ/kg)
+Condenser pressure (kPa), Enthalpy in condenser (kJ/kg)
+Mass of non-condensables (nitrogen) in the system in kg

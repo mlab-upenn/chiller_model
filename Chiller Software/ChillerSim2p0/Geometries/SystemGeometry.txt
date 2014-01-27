@@ -1,0 +1,5 @@
+Geometries\\EvaporatorGeometry.txt
+Geometries\\CondenserGeometry.txt
+Geometries\\CompressorGeometry.txt
+Geometries\\ValveGeometry.txt
+Geometries\\CoolingLineOrificeGeometry.txt

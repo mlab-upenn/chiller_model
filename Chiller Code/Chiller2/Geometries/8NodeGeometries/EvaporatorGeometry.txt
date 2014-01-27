@@ -1,0 +1,31 @@
+1	8
+0.01606	0.01960	2.4384	0.385	8933	0.0
+9	0.036322706	0.07969	
+22	0.023016652	0.0467	
+27	0.023476438	0.0467	
+32	0.02109022	0.0467	
+16	0.010225631	0.02335	
+16	0.009572255	0.02335	
+14	0.010024026	0.02335	
+13	0.052258175	0.10304	
+	
+
+
+Line 1:	Heat exchanger type (1=evaporator, 2=condenser)		Number of nodes
+Line 2:	Tube inside diameter (m), Tube outside diameter (m), Tube length (m), Tube material Cp (kJ/kg-K), Tube material density (kg/m^3)
+Line 3-end: Nodal geometry according to following table
+
+No. of tubes in node	Refrigerant volume of node (m^3)	Vertical height of node (m)
+1.
+2.
+.
+.
+.
+NNodes
+
+The nodes are numbered with 1 being the node into which refrigerant enters the heat exchanger, and proceeding
+sequentially to NNodes out of which the refrigerant leaves the heat exchanger.
+	
+
+
+	
