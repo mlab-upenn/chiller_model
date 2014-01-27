@@ -1,8 +1,8 @@
 #include	"StdAfx.h"
 #include	<stdlib.h>
 #include	<math.h>
-#include	<iostream.h>
-#include	<fstream.h>
+#include	<iostream>
+#include	<fstream>
 #include	"Headers\Protos.h"
 #include	"Headers\NumRecipes.h"
 #include	"Headers\Properties.h"
@@ -10,6 +10,7 @@
 
 extern ErrorLog	errorlog;
 
+using namespace std;  
 two_phase_table R134A2PTH, R134A2PTR;
 one_phase_table R134ASCTH, R134ASCTR, R134ASHTH, R134ASHTR;
 
@@ -172,7 +173,7 @@ one_phase_table::one_phase_table()
 bool one_phase_table::load1ptab(char *infile)
 {
 	ifstream fp(infile);
-
+    int i,j;
 	double temp;
 	Vector X,Y,Z;
 
@@ -196,9 +197,9 @@ bool one_phase_table::load1ptab(char *infile)
 	//Fix the sizes of the 1st column blocks
 	int k=1;
 
-	for(int i=1;i<=rows;i++)
+	for(i=1;i<=rows;i++)
 	{
-		for(int j=1;j<=cols;j++)
+		for(j=1;j<=cols;j++)
 		{
 			fp >> temp;
 			table(i,j,temp);
@@ -233,7 +234,7 @@ bool one_phase_table::load1ptab(char *infile)
 			X2.reset();
 			Y2.reset();
 			S2.reset();
-			for(int j=top,k=1;j<=blkind[i];j++,k++)
+			for(j=top,k=1;j<=blkind[i];j++,k++)
 			{
 				X2(k,table(j,2));
 				Y2(k,table(j,l));
@@ -262,11 +263,11 @@ Vector& one_phase_table::getprop(double x1, double x2, Vector& props)
 	//Bicubic spline properties in the first and second columns of the data table
 	//In case of thermodynamic properties, these are P & h
 	//In case of transport properties, these are P & T
-
+    int i;
 	double y1,y2;
 	Vector	X1, X2, Y1, Y2, S1, S2;
 	int maxblksz = blkind[1];
-	for(int i=2;i<=nblks;i++)
+	for(i=2;i<=nblks;i++)
 		maxblksz = (maxblksz>=blkind[i]-blkind[i-1])?maxblksz:(blkind[i]-blkind[i-1]);
 	
 	X1.make(nblks);

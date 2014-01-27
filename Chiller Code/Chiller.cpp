@@ -150,8 +150,8 @@ void	mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[])
 		y[0]	=	chiller->dTIME;
 		for(i=1;i<=chiller->iN_OUTPUTS;i++)
 			y[i]	= chiller->VOUTPUTS(i);
-
-		if(!chiller->fnSaveState())
-			errorlog.Add("Could not save Chiller state.");
+// SAVE STATE COMMENTED
+//		if(!chiller->fnSaveState())
+//			errorlog.Add("Could not save Chiller state.");
 	}
 }

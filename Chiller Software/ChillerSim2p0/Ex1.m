@@ -26,12 +26,12 @@ xlabel('s'); ylabel('kW');
 %Execute chiller for 1000s
 %
 %Update water side conditions every 10s
-t = 10;
+t = 5;
 %Initialize counter and output-storage
 i = 1;
 output = [];
 %Begin loop...
-while(i<1000)
+while(i<20)
     Tewi = TEWI;
     Tewo_set = TEWO_SET;
     mewat = MEWAT;
@@ -55,8 +55,8 @@ while(i<1000)
     subplot(313);
     plot(i,y(8),'r.');
     save output;
-    i = i+10;
+    i = i+t;
     pause(0.1);
 end
 %Save state at the end
-chiller(2);
+%chiller(2);

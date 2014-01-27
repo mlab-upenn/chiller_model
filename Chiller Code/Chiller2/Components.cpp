@@ -1,6 +1,7 @@
 #include "StdAfx.h"
-#include <fstream.h>
-#include <string.h>
+#include <iostream>
+#include <fstream>
+#include <string>
 #include <math.h>
 #include "Headers\Protos.h"
 #include "Headers\Components.h"
@@ -12,6 +13,7 @@
 #define	SAMESIGN(X,Y)	((X*Y)>0.0)?true:false
 
 extern ErrorLog	errorlog;
+using namespace std;    
 
 #define	MIN(X,Y)	(X<Y)?X:Y
 #define MAX(X,Y)	(X>Y)?X:Y
@@ -311,7 +313,7 @@ bool	FVShellTubeHX::fnSetState(double time, double svs1,Matrix& svs2)
 	h	=	MState[1];
 	vol =	VGeometry(6);
 	r134astate	state;
-	for(i=1;i<=nnodes;i++)
+	for(int i=1;i<=nnodes;i++)
 	{
 		if(!state.setstate(P,h(i)))	
 		{
@@ -513,7 +515,7 @@ bool	FVShellTubeHX::fnStateDerivs(double P,Vector& h,Vector& Tt, Vector& Tw, Vec
 	fnPopulateAB(mrin,hrin,mrout,h,Qr0);
 	solveLU(A,B,X);
 	Pdot = X(1);
-	for(i=1;i<=nnodes;i++)
+	for(int i=1;i<=nnodes;i++)
 	{
 		hdot(i,X(i+1));
 		if(i==1)
@@ -597,7 +599,7 @@ bool	FVShellTubeHX::fnReEvalStateExpE(double& newstate1, Matrix& newstate2, doub
 		}//End of Integration
 		M2	=	0.0;
 		VRHOU_1	= 0.0;
-		for(i=1;i<=nnodes;i++)
+		for(int i=1;i<=nnodes;i++)
 		{
 			if(!state.setstate(P,hi(i)))
 			{
@@ -739,7 +741,7 @@ bool	FVShellTubeHX::fnReEvalStateExpEPC(double& newstate1, Matrix& newstate2, do
 				fnStateDerivs(P,hi,Tt,Tw,mr0,Qr0,dPdt,dhdt,dTtdt,dTwdt,M2,VRHOU_1);
 			}
 			dP2		=	dPdt*tstep;
-			for(i=1;i<=nnodes;i++)
+			for(int i=1;i<=nnodes;i++)
 			{
 				dh2(i,dhdt(i)*tstep);
 				dTt2(i,dTtdt(i)*tstep);
@@ -750,7 +752,7 @@ bool	FVShellTubeHX::fnReEvalStateExpEPC(double& newstate1, Matrix& newstate2, do
 
 			M2	=	0.0;
 			VRHOU_1	= 0.0;
-			for(i=1;i<=nnodes;i++)
+			for(int i=1;i<=nnodes;i++)
 			{
 				hi(i,horig(i)+(dh1(i)+dh2(i))/2.0);
 				Tt(i,Ttorig(i)+(dTt1(i)+dTt2(i))/2.0);
@@ -1048,7 +1050,7 @@ bool	FVShellTubeHX::fnReEvalStateRK4(double& newstate1, Matrix& newstate2, doubl
 		fnStateDerivs(P,hi,Tt,Tw,mr0,Qr0,dPdt,dhdt,dTtdt,dTwdt,M1,VRHOU_1);
 		dP2		=	dPdt*tstep;
 		P		=	Porig + dP2/2.0;
-		for(i=1;i<=nnodes;i++)
+		for(int i=1;i<=nnodes;i++)
 		{
 			dh2(i,dhdt(i)*tstep);
 			dTt2(i,dTtdt(i)*tstep);
@@ -1060,7 +1062,7 @@ bool	FVShellTubeHX::fnReEvalStateRK4(double& newstate1, Matrix& newstate2, doubl
 		fnStateDerivs(P,hi,Tt,Tw,mr0,Qr0,dPdt,dhdt,dTtdt,dTwdt,M1,VRHOU_1);
 		dP3		=	dPdt*tstep;
 		P		=	Porig + dP3;
-		for(i=1;i<=nnodes;i++)
+		for(int i=1;i<=nnodes;i++)
 		{
 			dh3(i,dhdt(i)*tstep);
 			dTt3(i,dTtdt(i)*tstep);
@@ -1074,7 +1076,7 @@ bool	FVShellTubeHX::fnReEvalStateRK4(double& newstate1, Matrix& newstate2, doubl
 		P		=	Porig + dP1/6.0 + dP2/3.0 + dP3/3.0 + dP4/6.0;
 		M2	=	0.0;
 		VRHOU_1	= 0.0;
-		for(i=1;i<=nnodes;i++)
+		for(int i=1;i<=nnodes;i++)
 		{
 			dh4(i,dhdt(i)*tstep);
 			dTt4(i,dTtdt(i)*tstep);
@@ -3205,7 +3207,7 @@ bool	VapCompCentLiqChiller::fnSaveState()
 		//Evap....hi.....................Tti...................Twi..................mri..................Qr
 		sfile << EvapS(i,1) << "\t" << EvapS(i,2) << "\t" << EvapS(i,3) << "\t" << EvapS(i,4) << "\t" << EvapS(i,5) << endl;
 	sfile << endl;
-	for(i=1;i<=cnodes;i++)
+	for(int i=1;i<=cnodes;i++)
 		//Cond....hi.....................Tti...................Twi..................mri..................Qr
 		sfile << CondS(i,1) << "\t" << CondS(i,2) << "\t" << CondS(i,3) << "\t" << CondS(i,4) << "\t" << CondS(i,5) << endl;
 	sfile << endl;
@@ -3254,7 +3256,7 @@ bool	VapCompCentLiqChiller::fnSaveState(const char* statefile)
 		//Evap....hi.....................Tti...................Twi..................mri..................Qr
 		sfile << EvapS(i,1) << "\t" << EvapS(i,2) << "\t" << EvapS(i,3) << "\t" << EvapS(i,4) << "\t" << EvapS(i,5) << endl;
 	sfile << endl;
-	for(i=1;i<=cnodes;i++)
+	for(int i=1;i<=cnodes;i++)
 		//Cond....hi.....................Tti...................Twi..................mri..................Qr
 		sfile << CondS(i,1) << "\t" << CondS(i,2) << "\t" << CondS(i,3) << "\t" << CondS(i,4) << "\t" << CondS(i,5) << endl;
 	sfile << endl;
@@ -3326,7 +3328,7 @@ bool	VapCompCentLiqChiller::fnLoadState()
 	}
 	Tt = state.getT();
 	Tw = state.getT();
-	for(i=1;i<=cnodes;i++)
+	for(int i=1;i<=cnodes;i++)
 	{
 		CondS(i,1,h3);	CondS(i,2,Tt);	CondS(i,3,Tw);	CondS(i,4,mr);	CondS(i,5,Q);
 	}
@@ -3447,7 +3449,7 @@ bool	VapCompCentLiqChiller::fnLoadState(const char* sysstate)
 		}
 		Tt = state.getT();
 		Tw = state.getT();
-		for(i=1;i<=cnodes;i++)
+		for(int i=1;i<=cnodes;i++)
 		{
 			CondS(i,1,h3);	CondS(i,2,Tt);	CondS(i,3,Tw);	CondS(i,4,mr);	CondS(i,5,Q);
 		}
@@ -3498,7 +3500,7 @@ bool	VapCompCentLiqChiller::fnLoadState(const char* sysstate)
 		}
 		ifile.getline(line,512,'\n');
 
-		for(i=1;i<=cnodes;i++)
+		for(int i=1;i<=cnodes;i++)
 		{
 			ifile.getline(line,512,'\n');
 			if(sscanf(line,"%lf%lf%lf%lf%lf",&h,&Tt,&Tw,&mr,&Q)!=5)

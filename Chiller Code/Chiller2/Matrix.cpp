@@ -1,6 +1,6 @@
 #include	"StdAfx.h"
-#include	<iostream.h>
-#include	<string.h>
+#include	<iostream>
+#include	<string>
 #include	<math.h>
 #include	"Headers\NumRecipes.h"
 #include	"Headers\Matrix.h"

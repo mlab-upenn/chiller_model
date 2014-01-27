@@ -561,7 +561,7 @@ double	roundoff(double num, int dec)
 	//Rounds off num to dec decimal places
 	double t1, t2, thalf, mult=1.0;
 
-	mult = pow(10,dec);
+	mult = pow(10.0,dec);
 	t1	=	floor(num*mult);
 	t2	=	ceil(num*mult);
 	thalf = (t1+t2)/2.0;
@@ -580,6 +580,8 @@ bool	TDMA1D(Matrix& A, Vector& B, Vector& X)
 	//As passed, the discrete equations are required to be in the form
 	// a_p.phi_P = a_w*phi_W + a_e*phi_E + B_p
 
+    int i;
+    
 	//Check input data for dimensional consistency
 	bool GoodArgs = false;
 	GoodArgs = (A.cols()==3)&&(A.rows()==B.size())&&(B.size()==X.size());
@@ -591,7 +593,7 @@ bool	TDMA1D(Matrix& A, Vector& B, Vector& X)
 	//Data format checked and found OK
 
 	//Check A for singularity...
-	for(int i=1;i<=A.rows();i++)
+	for(i=1;i<=A.rows();i++)
 	{
 		if(fabs(A(i,2))<=MYZERO)
 		{
@@ -645,7 +647,8 @@ bool	TDMA2D(Matrix& AP, Matrix& AN, Matrix& AS, Matrix& AE, Matrix& AW, Matrix& 
 
 	//As passed, the discrete equations are required to be in the form
 	// a_p.phi_P = a_w*phi_W + a_e*phi_E + a_n*phi_N + a_s*phi_S + B_p
-
+    
+    int j,i;
 
 	//Check input data for dimensional consistency
 	bool GoodArgs = false;
@@ -669,11 +672,11 @@ bool	TDMA2D(Matrix& AP, Matrix& AN, Matrix& AS, Matrix& AE, Matrix& AW, Matrix& 
 	//Begin sweeps...
 	//Begin upward vertical sweep - through j = constant lines from j = 1 to NJ
 	double bji;
-	for(int j=1;j<=NJ;j++)
+	for(j=1;j<=NJ;j++)
 	{
 		Aj.reset();	Bj.reset();	Xj.reset(); bji = 0.0;
 		//Construct A and B structures for TDMA1D
-		for(int i=1;i<=NI;i++)
+		for(i=1;i<=NI;i++)
 		{
 			Aj(i,1,AW(j,i));
 			Aj(i,2,AP(j,i));
@@ -701,7 +704,7 @@ bool	TDMA2D(Matrix& AP, Matrix& AN, Matrix& AS, Matrix& AE, Matrix& AW, Matrix& 
 	{
 		Aj.reset();	Bj.reset();	Xj.reset(); bji = 0.0;
 		//Construct A and B structures for TDMA1D
-		for(int i=1;i<=NI;i++)
+		for(i=1;i<=NI;i++)
 		{
 			Aj(i,1,AW(j,i));
 			Aj(i,2,AP(j,i));
@@ -727,7 +730,7 @@ bool	TDMA2D(Matrix& AP, Matrix& AN, Matrix& AS, Matrix& AE, Matrix& AW, Matrix& 
 	Aj.make(NJ,3);
 	Bj.make(NJ);	Xj.make(NJ);
 	//Begin right horizontal sweep - through i = constant lines from i = 1 to NI
-	for(int i=1;i<=NI;i++)
+	for(i=1;i<=NI;i++)
 	{
 		Aj.reset();	Bj.reset();	Xj.reset(); bji = 0.0;
 		//Construct A and B structures for TDMA1D
@@ -832,6 +835,8 @@ bool	GaussSeidel(Matrix& A, Vector& B, Vector& X)
 	//X -> State vector...contains initial guess values on entry
 	//		and converged values on exit
 
+    int i;
+    
 	//Check arguments for size and format
 	bool GoodArgs = false;
 	GoodArgs = (A.rows()==A.cols())&&(A.rows()==B.size())&&(B.size()==X.size());
@@ -914,6 +919,7 @@ bool solveLU(Matrix& A, Vector& B, Vector& X)
 
 bool solveLU(Matrix& A, Vector& B, Vector& X, int n)
 {
+    int i,j;    
 	double d;
 	Vector indx;
 	Matrix a, alud;
@@ -929,9 +935,9 @@ bool solveLU(Matrix& A, Vector& B, Vector& X, int n)
 		return false;	
 	}
 
-	for(int i=1;i<=n;i++)
+	for(i=1;i<=n;i++)
 	{
-		for(int j=1;j<=n;j++)
+		for(j=1;j<=n;j++)
 		{
 			a(i,j,A(i,j));
 			alud(i,j,A(i,j));
@@ -992,6 +998,7 @@ void	Pow(Matrix& A, int pwr, Matrix& PwrA)
 
 void	Exp(Matrix&A, Matrix& ExpA)
 {
+    int i;
 	double k;
 	k = log(A.RowInfinityNorm())*LOG2INV;
 	k = int(k)+1;
@@ -1009,7 +1016,7 @@ void	Exp(Matrix&A, Matrix& ExpA)
 	Eye(ExpAp);
 	ExpAp = ExpAp + A;
 
-	for(int i=2;i<=L;i++)
+	for(i=2;i<=L;i++)
 	{
 		facti *= double(i);
 		Pow(A,i,Ap);
